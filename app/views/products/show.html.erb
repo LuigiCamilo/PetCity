@@ -1,0 +1,64 @@
+<!-- content -->
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center w-300 h-300" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+          url('<%= url_for @product.photo %>')">
+        </div>
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6">
+          <h4 class="title text-dark"><%= @product.title %></h4>
+          <div class="mb-3">
+          <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= @product.stock %></span>
+          <span class="text-success ms-2">En stock</span>
+
+          </div>
+            <span class="h5">$<%= @product.price %></span>
+            <span class="text-muted">/por unidad</span>
+
+          <p class="mt-2">
+          <%= @product.description %>
+          </p>
+
+          <div class="row">
+            <dt class="col-3">Categoria:</dt>
+            <dd class="col-9"><%= @product.category %></dd>
+
+            <dt class="col-3">Especie</dt>
+            <dd class="col-9"><%= @product.pet %></dd>
+
+            <dt class="col-3">Marca</dt>
+            <dd class="col-9"><%= @product.brand %></dd>
+          </div>
+
+          <hr />
+
+          <div class="row mb-4">
+
+            <!-- col.// -->
+            <div class="col-md-4 col-6 mb-3">
+              <label class="mb-2 d-block">Cantidad</label>
+              <div class="input-group mb-3" style="width: 170px;">
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <%= link_to "Comprar", edit_product_path, class:"btn btn-warning shadow-0" %>
+          <% if current_user == @product.user %>
+          <%= link_to "Editar Producto", edit_product_path, class:"btn btn-warning shadow-0" %>
+          <% end %>
+          </div>
+      </main>
+    </div>
+  </div>
+</section>
+<!-- content -->

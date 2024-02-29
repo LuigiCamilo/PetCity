@@ -1,0 +1,40 @@
+:root {
+  --gradient: linear-gradient(to left top, #F4524D 10%, #5543CA 90%) !important;
+}
+
+.card {
+  background: white;
+  border: 1px solid #5543CA;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card-title {
+  padding-left: 15px;
+  text-align: left;
+  font-family: Nunito;
+  color: #5543CA;
+  font-weight: bold;
+}
+
+.btn {
+  font-weight: bold;
+  border: 5px solid;
+  border-image-slice: 1;
+  background: var(--gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  border-image-source:  var(--gradient) !important;
+  text-decoration: none;
+  transition: all .4s ease;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--gradient) !important;
+  -webkit-background-clip: none !important;
+  -webkit-text-fill-color: #fff !important;
+  border: 5px solid #fff !important;
+  box-shadow: #222 1px 0 10px;
+}

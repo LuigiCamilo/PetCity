@@ -1,0 +1,11 @@
+
+<div class="col-md-4">
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag product.photo.key%>
+    <div class="card-body">
+      <h2 class="title card-title"><%= product.title %></h2>
+      <p class="card-text"><%= product.price %>$</p>
+      <%= link_to "Detalles", product_path(product), class: "btn mr-2 fas fa-link" %>
+    </div>
+  </div>
+</div>

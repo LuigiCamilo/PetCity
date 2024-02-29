@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'yolo' => 'pages#home'
   # Defines the root path route ("/")
   # root "products#index"
+  resources :products
 end
