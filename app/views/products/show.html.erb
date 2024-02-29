@@ -1,0 +1,17 @@
+<h1>Products#show</h1>
+<p>Find me in app/views/products/show.html.erb</p>
+    <img src="https://th.bing.com/th/id/OIP.ObG8kySHZKxOGte5_hBtEQHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="https://th.bing.com/th/id/OIP.ObG8kySHZKxOGte5_hBtEQHaHa?rs=1&pid=ImgDetMain">
+          <%= @product.title %>
+      </div>
+    <p>User: <%= @product.user.email %></p>
+
+    <p>descripcion: <%= @product.description %></p>
+      <p>stock: <%= @product.stock %></p>
+      <p>price: <%= @product.price %></p>
+
+    <% if current_user == @product.user %>
+        <%= link_to "Editar Producto", edit_product_path %>
+    <% end %>
+
+
+    <img src="https://th.bing.com/th/id/OIP.ObG8kySHZKxOGte5_hBtEQHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="https://th.bing.com/th/id/OIP.ObG8kySHZKxOGte5_hBtEQHaHa?rs=1&pid=ImgDetMain">
