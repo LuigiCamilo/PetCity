@@ -1,6 +1,10 @@
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>
-    <h2> <%= @product.title %></h2>
+
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+          url('<%= url_for @product.photo %>')">
+          <%= @product.title %>
+      </div>
     <p>User: <%= @product.user.email %></p>
 
     <p>descripcion: <%= @product.description %></p>
