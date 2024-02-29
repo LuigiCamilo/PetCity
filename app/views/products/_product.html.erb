@@ -1,8 +1,7 @@
 
 <div class="col-md-4">
   <div class="card" style="width: 18rem;">
-    <%= image %>
-    <img src="https://th.bing.com/th/id/OIP.ObG8kySHZKxOGte5_hBtEQHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="https://th.bing.com/th/id/OIP.ObG8kySHZKxOGte5_hBtEQHaHa?rs=1&pid=ImgDetMain">
+    <%= cl_image_tag product.photo.key%>
     <div class="card-body">
       <h2 class="title card-title"><%= product.title %></h2>
       <p class="card-text"><%= product.price %>$</p>

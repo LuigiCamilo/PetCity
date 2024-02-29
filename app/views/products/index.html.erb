@@ -6,7 +6,7 @@
       <%= render product %>
     <% end %>
   </div>
-  <% if @products.nil? %>
+  <% if @products.length == 0 %>
     <p>No existen productos en stock.</p>
   <% end %>
 </div>
