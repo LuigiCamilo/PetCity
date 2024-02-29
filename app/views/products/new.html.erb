@@ -1,4 +1,4 @@
-<section class="get-in-touch">
+<section class="get-in-touch section_form">
    <h1 class="title">Products#new</h1>
    <%= simple_form_for @product, html: { class: "contact-form row" } do |f| %>
       <div class="form-field col-lg-6">
@@ -19,7 +19,7 @@
       <div class="form-field col-lg-6">
          <%= f.input :stock, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-12">
           <%= f.input :photo, as: :file, input_html: { class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12">
