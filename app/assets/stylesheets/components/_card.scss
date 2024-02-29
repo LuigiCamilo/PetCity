@@ -19,22 +19,22 @@
   font-weight: bold;
 }
 
-.btn {
+.btn.btn-details {
   font-weight: bold;
   border: 5px solid;
   border-image-slice: 1;
-  background: var(--gradient) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  border-image-source:  var(--gradient) !important;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-image-source:  var(--gradient);
   text-decoration: none;
   transition: all .4s ease;
 }
 
-.btn:hover, .btn:focus {
-  background: var(--gradient) !important;
-  -webkit-background-clip: none !important;
-  -webkit-text-fill-color: #fff !important;
-  border: 5px solid #fff !important;
+.btn.btn-details:hover, .btn.btn-details:focus {
+  background: var(--gradient);
+  -webkit-background-clip: none;
+  -webkit-text-fill-color: #fff;
+  border: 5px solid #fff;
   box-shadow: #222 1px 0 10px;
 }

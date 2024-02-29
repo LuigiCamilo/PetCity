@@ -11,7 +11,7 @@
          <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
          <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password", class: "input-text js-input", id: "current_password" } %>
       </div>
-      <div class="form-actions col-lg-12">
+      <div class="form-actions col-lg-12 d-flex">
          <%= f.button :submit, "Update", class: "submit-btn btn btn-warning" %>
       </div>
    <% end %>

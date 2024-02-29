@@ -20,10 +20,10 @@
       <div class="form-field col-lg-6">
          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password" } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-12">
          <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
       </div>
-      <div class="form-actions col-lg-12">
+      <div class="form-actions col-lg-12 d-flex">
          <%= f.button :submit, "Sign up", class: "submit-btn btn btn-warning" %>
       </div>
    <% end %>

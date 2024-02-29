@@ -1,11 +1,46 @@
+<section class="get-in-touch">
+   <h1 class="title">Products#new</h1>
+   <%= simple_form_for @product, html: { class: "contact-form row" } do |f| %>
+      <div class="form-field col-lg-6">
+         <%= f.input :title, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-6">
+        <%= f.input :pet, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-6">
+        <%= f.input :brand, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-6">
+        <%= f.input :category, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-6">
+         <%= f.input :price, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-6">
+         <%= f.input :stock, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-6">
+          <%= f.input :photo, as: :file, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-12">
+         <%= f.input :description, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-12 d-flex">
+         <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary" %>
+      </div>
+   <% end %>
+</section>
+
+
+
+
 <h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
 
 <%= simple_form_for @product do |f| %>
   <%= f.input :title %>
-  <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :stock %>
+  <%= f.input :description %>
   <%= f.input :photo, as: :file %>
   <%= f.submit "Submit list", class: "btn btn-primary" %>
 <% end %>

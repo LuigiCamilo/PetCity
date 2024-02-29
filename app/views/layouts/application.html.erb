@@ -17,10 +17,9 @@
     <%= render 'share/navbar' %>
   </header>
   <body>
+    <%= render "shared/flashes" %>
     <%= yield %>
     <%= console %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
   </body>
   <%= render 'share/footer' %>

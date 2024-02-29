@@ -10,8 +10,8 @@
       <div class="form-field col-lg-12">
          <%= f.input :remember_me, as: :boolean, label: "Remember me", input_html: { class: "form-check-input", id: "remember_me" } if devise_mapping.rememberable? %>
       </div>
-      <div class="form-actions col-lg-12">
-         <%= f.button :submit, "Log in", class: "submit-btn btn btn-warning" %>
+      <div class="form-actions col-lg-12 d-flex">
+         <%= f.button :submit, "Log in", class: "submit-btn btn btn-error" %>
       </div>
    <% end %>
    <%= render "devise/shared/links" %>
