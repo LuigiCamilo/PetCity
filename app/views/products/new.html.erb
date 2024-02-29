@@ -30,17 +30,3 @@
       </div>
    <% end %>
 </section>
-
-
-
-
-<h1>Products#new</h1>
-
-<%= simple_form_for @product do |f| %>
-  <%= f.input :title %>
-  <%= f.input :price %>
-  <%= f.input :stock %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Submit list", class: "btn btn-primary" %>
-<% end %>
