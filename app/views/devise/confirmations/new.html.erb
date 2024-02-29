@@ -1,3 +1,28 @@
+<section class="get-in-touch">
+   <h1 class="title">Resend confirmation instructions</h1>
+   <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "contact-form row" }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.full_error :confirmation_token %>
+      <div class="form-field col-lg-12">
+         <%= f.input :email, required: true, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), input_html: { autocomplete: "email", class: "input-text js-input", id: "email" } %>
+      </div>
+      <div class="form-actions col-lg-12">
+         <%= f.button :submit, "Resend confirmation instructions", class: "submit-btn btn btn-warning" %>
+      </div>
+   <% end %>
+   <%= render "devise/shared/links" %>
+</section>
+
+
+
+
+
+
+
+
+
+<!--
+
 <h2>Resend confirmation instructions</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
@@ -18,3 +43,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+-->
