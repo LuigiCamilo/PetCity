@@ -9,6 +9,6 @@
     </div>
   <% end %>
 
-<% if @products %>
+<% if @products.nil? %>
   <p>No existen productos en stock.</p>
 <% end %>

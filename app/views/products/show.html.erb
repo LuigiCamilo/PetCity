@@ -10,6 +10,9 @@
     <p>descripcion: <%= @product.description %></p>
       <p>stock: <%= @product.stock %></p>
       <p>price: <%= @product.price %></p>
+      <p>brand: <%= @product.brand %></p>
+      <p>pet: <%= @product.pet %></p>
+      <p>category: <%= @product.category %></p>
 
     <% if current_user == @product.user %>
         <%= link_to "Editar Producto", edit_product_path %>
