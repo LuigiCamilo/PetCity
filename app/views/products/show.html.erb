@@ -1,2 +1,12 @@
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>
+    <h2> <%= @product.title %></h2>
+    <p>User: <%= @product.user.email %></p>
+
+    <p>descripcion: <%= @product.description %></p>
+      <p>stock: <%= @product.stock %></p>
+      <p>price: <%= @product.price %></p>
+
+    <% if current_user == @product.user %>
+        <%= link_to "Editar Producto", edit_product_path %>
+    <% end %>
