@@ -1,0 +1,28 @@
+#pet {
+  color: var(--color-primary);
+}
+.banner {
+  background-color: #f6fbfe;
+  background-position: bottom;
+  height: calc(100vh - 70.5px);
+  padding: 4rem 0;
+  background-size: 75%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.banner h1 {
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 3rem;
+  color: var(--color-primary);
+  font-weight: 900;
+  letter-spacing: 4px;
+}
+
+.banner p {
+  font-size: 20px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 600;
+}
