@@ -18,6 +18,9 @@
   --color-primary: #5543CA;
   --White: #ffffff;
 }
+body{
+  background-color: var(--White);
+}
 .company_name{
   letter-spacing: 2px;
   color: var(--color-primary);

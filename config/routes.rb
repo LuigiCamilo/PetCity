@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :products
+  resources :users, only: [:show]
   # Defines the root path route ("/")
   # root "products#index"
 end
