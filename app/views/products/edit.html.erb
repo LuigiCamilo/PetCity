@@ -1,22 +1,34 @@
-<section class="get-in-touch section_form">
-  <h1 class="title">Product Edit</h1>
-  <%= simple_form_for @product, html: { class: "contact-form row" } do |f| %>
-    <div class="form-field col-lg-12">
-      <%= f.input :title, input_html: { class: "input-text js-input", required: true }, label: false %>
-    </div>
-    <div class="form-field col-lg-12">
-      <%= f.input :description, input_html: { class: "input-text js-input", required: true }, label: false %>
-    </div>
-    <div class="form-field col-lg-12">
-      <%= f.input :price, input_html: { class: "input-text js-input", required: true }, label: false %>
-    </div>
-    <div class="form-field col-lg-12">
-      <%= f.input :stock, input_html: { class: "input-text js-input", required: true }, label: false %>
-    </div>
-    <div class="form-field col-lg-12 d-flex">
-      <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary" %>
-    </div>
-  <% end %>
+<section class="get-in-touch section_form" style="max-width: 1000px;">
+   <h1 class="title"><i class="fas fa-shopping-bag"></i>Edit Product</h1>
+   <%= simple_form_for @product, html: { class: "contact-form row" } do |f| %>
+      <div class="form-field col-lg-4">
+         <%= f.input :title, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-4">
+        <%= f.input :pet, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-4">
+        <%= f.input :brand, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-4">
+        <%= f.input :category, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-4">
+         <%= f.input :price, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-4">
+         <%= f.input :stock, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-4">
+          <%= f.input :photo, as: :file, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-12">
+         <%= f.input :description, input_html: { class: "input-text js-input", required: true } %>
+      </div>
+      <div class="form-field col-lg-12 d-flex justify-content-center">
+         <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary" %>
+      </div>
+   <% end %>
 </section>
 
 

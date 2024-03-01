@@ -28,7 +28,7 @@
 
 .contact-form .form-field {
   position: relative;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .contact-form .input-text {
   display: block;
@@ -73,6 +73,20 @@
   padding: 8px 16px;
   border: none;
   width:60%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.custom-photo-button {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  width: 60%;
   margin: 0 auto;
   cursor: pointer;
 }
