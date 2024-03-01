@@ -64,9 +64,17 @@
 }
 .activites > div:nth-child(4){
   background-color: #00cf8c;;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
 }
 .activites > div:nth-child(5){
-  background-color: #f0f2f1;
+
+  background-color: #f0f2f1;;
+  color: rgba(0, 0, 0, 0.664);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: right;
@@ -80,6 +88,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+  font-size: 20px;
 }
 @media (max-width: 425px){
   .activites{
