@@ -43,10 +43,13 @@
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: 160px 160px;
   width: 100%;
+  color: white;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
   // height: 320px;
 }
 .activites div{
   // height: 160px;
+
 }
 .activites > div:nth-child(1){
   background-size: cover;
@@ -68,9 +71,17 @@
 }
 .activites > div:nth-child(4){
   background-color: #00cf8c;;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
 }
 .activites > div:nth-child(5){
-  background-color: #f0f2f1;
+
+  background-color: #f0f2f1;;
+  color: rgba(0, 0, 0, 0.664);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: right;
@@ -84,6 +95,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+  font-size: 20px;
 }
 @media (max-width: 425px){
   .activites{
