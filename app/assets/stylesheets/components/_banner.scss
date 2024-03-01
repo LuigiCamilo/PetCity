@@ -22,7 +22,20 @@
 
 .banner p {
   font-size: 20px;
-  font-size: 20px;
   color: #000000;
   font-weight: 600;
+}
+
+@media (max-width: 425px){
+  .banner {
+    background-size: 90%;
+  }
+  .banner h1 {
+    font-size: 2rem;
+  }
+  .banner p {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600;
+  }
 }
