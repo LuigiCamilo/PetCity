@@ -2,24 +2,25 @@
 <section class="py-5">
   <div class="container">
     <div class="row gx-5">
-      <aside class="col-lg-6">
-        <div class="border rounded-4 mb-3 d-flex justify-content-center w-300 h-300" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-          url('<%= url_for @product.photo %>')">
+      <aside class="col-lg-6 p-0">
+        <div class="mb-3 d-flex justify-content-center">
+          <%= cl_image_tag @product.photo.key, :class => "w-100 rounded-4"%>
         </div>
         <!-- thumbs-wrap.// -->
         <!-- gallery-wrap .end// -->
       </aside>
       <main class="col-lg-6">
-          <h4 class="title text-dark"><%= @product.title %></h4>
+          <p class="company_name">PetCity Company</p>
+          <h4 class="title product-title text-dark"><%= @product.title %></h4>
           <div class="mb-3">
-          <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= @product.stock %></span>
+          <span class="text-muted" id="stock"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= @product.stock %></span>
           <span class="text-success ms-2">En stock</span>
 
           </div>
             <span class="h5">$<%= @product.price %></span>
             <span class="text-muted">/por unidad</span>
 
-          <p class="mt-2">
+          <p class="mt-2 product-detail">
           <%= @product.description %>
           </p>
 
@@ -39,23 +40,25 @@
           <div class="row mb-4">
 
             <!-- col.// -->
-            <div class="col-md-4 col-6 mb-3">
-              <label class="mb-2 d-block">Cantidad</label>
-              <div class="input-group mb-3" style="width: 170px;">
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                  <i class="fas fa-plus"></i>
-                </button>
+            <div class="col-md-4 col-6 mb-3 w-100">
+              <%# <label class="mb-2 d-block">Cantidad</label> %>
+              <div class="input-group mb-3 gap-3 d-flex gap-3 mt-3 w-100">
+                <div class="inc_dec_button" data-controller="add-quantity">
+                  <button data-action="click->add-quantity#minus" class="btn-inc" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <div data-add-quantity-target="input" class="item_amount">1</div>
+                  <button data-action="click->add-quantity#add" class="btn-inc" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
               </div>
             </div>
           </div>
-          <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
-          <% if current_user == @product.user %>
-          <%= link_to "Editar Producto", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
-          <% end %>
+          <%# <% if current_user == @product.user %>
+          <%# <%= link_to "Editar Producto", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
+          <%# <% end %>
           </div>
       </main>
     </div>

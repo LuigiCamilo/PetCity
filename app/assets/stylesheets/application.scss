@@ -18,3 +18,42 @@
   --color-primary: #5543CA;
   --White: #ffffff;
 }
+.company_name{
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.product-title {
+  font-size: 2rem;
+  line-height: 1;
+}
+.product-detail{
+  color: hsl(219, 9%, 45%);
+  line-height: 2;
+  font-size: 1.5rem;
+}
+.inc_dec_button {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  gap: 1rem;
+  width: 150px;
+}
+.btn-inc{
+  border-radius: 1rem;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .25s;
+  display: grid;
+  place-items: center;
+  background-color: #f9f9f9;
+  color: var(--color-primary);
+}
+.inc_dec_button .item_amount{
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
