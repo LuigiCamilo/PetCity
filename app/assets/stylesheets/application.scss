@@ -60,3 +60,13 @@ body{
   place-items: center;
   font-weight: 600;
 }
+.table tr .th_product{
+  background-color: var(--White);
+}
+.table > thead > tr th{
+  border: none;
+}
+.photo_product{
+  width: 50px;
+  height: 50px;
+}

@@ -12,15 +12,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <header>
-    <%= render 'share/navbar' %>
-  </header>
   <body>
+    <header>
+      <%= render 'share/navbar' %>
+    </header>
     <%= render "shared/flashes" %>
     <%= yield %>
     <%# <%= console %>
-
+    <%= render 'share/footer' %>
   </body>
-  <%= render 'share/footer' %>
 </html>
