@@ -59,7 +59,7 @@
                         </div>
                         <div class="card-body p-4 modal-body">
                           <div class="d-flex justify-content-between align-items-center mb-4"><%=  %>
-                            <p class="small mb-0"><%= current_user.first_name %> <%= current_user.last_name %></p>
+                            <p class="small mb-0"><%= current_user.first_name if user_signed_in? %> <%= current_user.last_name if user_signed_in? %></p>
                           </div>
                           <div class="card shadow-0 border mb-4">
                             <div class="card-body">
@@ -90,7 +90,7 @@
                             <p class="text-muted mb-0">Total <span class="fw-bold me-4" data-add-quantity-target="price">$<%= @product.price %></span> </p>
                           </div>
                           <div class="d-flex justify-content-between pt-2">
-                            <p class="text-muted mb-0"><%= current_user.phone_number %></p>
+                            <p class="text-muted mb-0"><%= current_user.phone_number if user_signed_in? %></p>
                             <p class="text-muted mb-0"><span class="fw-bold me-4">Descuento</span> $19.00</p>
                           </div>
                           <div class="d-flex justify-content-between">
@@ -98,7 +98,7 @@
                             <p class="text-muted mb-0"><span class="fw-bold me-4">IVA 16%</span> 123</p>
                           </div>
                           <div class="d-flex justify-content-between mb-5">
-                            <p class="text-muted mb-0"><%= current_user.address %></p>
+                            <p class="text-muted mb-0"><%= current_user.address if user_signed_in? %></p>
                             <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery</span>Gratis</p>
                           </div>
                         </div>
