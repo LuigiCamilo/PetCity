@@ -11,6 +11,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <%# if user_signed_in? %>
+            <%= form_with url: products_path, method: :get, class: "d-flex search-form" do %>
+            <%= text_field_tag :query,
+                params[:query],
+                class: "form-control search-input ",
+                placeholder: "Busca tu producto"
+            %>
+            <%= submit_tag "Buscar", name: "", class: "submit-btn" %>
+    <% end %>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
