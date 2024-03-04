@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="show"
 export default class extends Controller {
-  static targets = ["input", "quantity", "price"]
+  static targets = ["input", "quantity", "price", "price_total"]
   static values = {
     price: Number
   }
@@ -17,6 +17,7 @@ export default class extends Controller {
       this.inputTarget.value = value
       this.quantityTarget.textContent = `${value}x`
       this.priceTarget.textContent = `$${ value * this.priceValue}.0`
+      this.price_totalTarget.textContent = `$${ value * this.priceValue}.0`
     }
   }
   add(event) {
@@ -28,6 +29,7 @@ export default class extends Controller {
       this.inputTarget.value = value
       this.quantityTarget.textContent = `${value}x`
       this.priceTarget.textContent = `$${ value * this.priceValue}.0`
+      this.price_totalTarget.textContent = `$${ value * this.priceValue}.0`
       // console.log(this.priceValue)
     }
   }
