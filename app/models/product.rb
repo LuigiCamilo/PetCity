@@ -6,8 +6,8 @@ class Product < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search,
-  against: [ :title, :description, :brand, :pet, :category ],
-  associated_against: {
+  against: %i[ title description brand pet category ],
+    associated_against: {
     user: [ :first_name, :last_name ]
   },
   using: {

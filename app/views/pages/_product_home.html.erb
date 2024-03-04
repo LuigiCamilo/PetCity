@@ -1,0 +1,8 @@
+
+<%= link_to product_path(product) do %>
+  <%= cl_image_tag product.photo.key%>
+<% end %>
+<div class="card-product-infos">
+  <h2><%= product.title %></h2>
+  <p><%= product.description %></p>
+</div>
