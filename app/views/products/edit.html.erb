@@ -19,8 +19,9 @@
       <div class="form-field col-lg-4">
          <%= f.input :stock, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-4">
+      <div class="form-field col-lg-4" >
           <%= f.input :photo, as: :file, input_html: { class: "input-text js-input", required: true } %>
+          <p style="color: red; font-size:12px; margin-top: 0;">No rellene este campo si no desea modificar la fotografia.</p>
       </div>
       <div class="form-field col-lg-12">
          <%= f.input :description, input_html: { class: "input-text js-input", required: true } %>
@@ -30,26 +31,3 @@
       </div>
    <% end %>
 </section>
-
-
-
-
-
-
-
-
-
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
-
-<%= simple_form_for @product do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.input :stock %>
-  <%= f.input :pet %>
-  <%= f.input :brand %>
-  <%= f.input :category %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Submit list", class: "btn btn-primary" %>
-<% end %>

@@ -20,7 +20,7 @@
          <%= f.input :stock, input_html: { class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12">
-          <%= f.input :photo, as: :file, input_html: { class: "input-text js-input", required: true } %>
+          <%= f.input :photo, as: :file, input_html: { id:"photo-product", class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12">
          <%= f.input :description, input_html: { class: "input-text js-input", required: true } %>
@@ -30,3 +30,13 @@
       </div>
    <% end %>
 </section>
+<script>
+const foto = document.querySelector("#photo-product");
+const submit = document.querySelector(".submit-btn");
+submit.addEventListener("click", (event) => {
+  if (foto.files.length === 0) {
+     event.preventDefault();
+     alert("Debes ingresar una fotografia de tu producto");
+  }
+});
+</script>
