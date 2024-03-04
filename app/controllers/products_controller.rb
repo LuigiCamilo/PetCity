@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where('stock > ?', 0)
+    if params[:query].present?
+      @products = Product.search(params[:query])
+    end
   end
 
   def show
