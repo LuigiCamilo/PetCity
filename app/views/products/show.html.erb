@@ -10,159 +10,129 @@
         <!-- gallery-wrap .end// -->
       </aside>
       <main class="col-lg-6">
-          <p class="company_name">PetCity Company</p>
-          <h4 class="title product-title text-dark"><%= @product.title %></h4>
-          <div class="mb-3">
+        <p class="company_name">PetCity Company</p>
+        <h4 class="title product-title text-dark"><%= @product.title %></h4>
+        <div class="mb-3">
           <span class="text-muted" id="stock"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= @product.stock %></span>
           <span class="text-success ms-2">En stock</span>
 
-          </div>
-            <span class="h5">$<%= @product.price %></span>
-            <span class="text-muted">/por unidad</span>
-
-          <p class="mt-2 product-detail">
+        </div>
+        <span class="h5">$<%= @product.price %></span>
+        <span class="text-muted">/por unidad</span>
+        <p class="mt-2 product-detail">
           <%= @product.description %>
-          </p>
-
-          <div class="row">
-            <dt class="col-3">Categoria:</dt>
-            <dd class="col-9"><%= @product.category %></dd>
-
-            <dt class="col-3">Especie</dt>
-            <dd class="col-9"><%= @product.pet %></dd>
-
-            <dt class="col-3">Marca</dt>
-            <dd class="col-9"><%= @product.brand %></dd>
-          </div>
-
-          <hr />
-
-          <div class="row mb-4">
-
-            <!-- col.// -->
-            <div class="col-md-4 col-6 mb-3 w-100">
-              <%# <label class="mb-2 d-block">Cantidad</label> %>
-              <div class="input-group mb-3 gap-3 d-flex gap-3 mt-3 w-100">
-                <div class="inc_dec_button" data-controller="add-quantity">
-                  <button data-action="click->add-quantity#minus" class="btn-inc" type="button" id="button-addon1" data-mdb-ripple-color="dark">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <div data-add-quantity-target="input" class="item_amount">1</div>
-                  <button data-action="click->add-quantity#add" class="btn-inc" type="button" id="button-addon2" data-mdb-ripple-color="dark">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                </div>
-                <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
+        </p>
+        <div class="row">
+          <dt class="col-3">Categoria:</dt>
+          <dd class="col-9"><%= @product.category %></dd>
+          <dt class="col-3">Especie</dt>
+          <dd class="col-9"><%= @product.pet %></dd>
+          <dt class="col-3">Marca</dt>
+          <dd class="col-9"><%= @product.brand %></dd>
+        </div>
+        <hr />
+        <div class="row mb-4">
+          <div class="col-md-4 col-6 mb-3 w-100">
+            <div class="input-group mb-3 gap-3 d-flex gap-3 mt-3 w-100">
+              <div class="inc_dec_button" data-controller="add-quantity" data-add-quantity-price-value="<%= @product.price %>">
+                <button data-action="click->add-quantity#minus" class="btn-inc" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <%= simple_form_for([@product, @order]) do |f| %>
+                  <div class="form-inputs h-100 d-flex align-items-center">
+                    <%= f.input :quantity, label: false, input_html: {
+                      style: 'width: 47px;background-color: transparent; border: none;',
+                      'data-add-quantity-target': 'input',
+                      'readonly': 'readonly',
+                      value: 1 }
+                    %>
+                    <% f.input :product_id, value: @product %>
+                  </div>
+                      <%# <%= render 'share/modal' %>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <%# <div class="modal-dialog"> %>
+                      <div class="modal-content rounded-4">
+                        <div class="card-header px-4 py-5 modal-header">
+                          <h4 class="text-muted mb-0">Confirma tu orden <i class="fa-solid fa-cat"></i></h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="card-body p-4 modal-body">
+                          <div class="d-flex justify-content-between align-items-center mb-4"><%=  %>
+                            <p class="small mb-0"><%= current_user.first_name %> <%= current_user.last_name %></p>
+                          </div>
+                          <div class="card shadow-0 border mb-4">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-2">
+                                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp" class="img-fluid" alt="Phone">
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0"><%= @product.title %></p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small"><%= @product.brand %></p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small"><%= @product.pet %></p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small" data-add-quantity-target="quantity">1X</p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small">$<%= @product.price %></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between pt-2">
+                            <p class="fw-bold mb-0">Detalles de orden</p>
+                            <p class="text-muted mb-0">Total <span class="fw-bold me-4" data-add-quantity-target="price">$<%= @product.price %></span> </p>
+                          </div>
+                          <div class="d-flex justify-content-between pt-2">
+                            <p class="text-muted mb-0"><%= current_user.phone_number %></p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">Descuento</span> $19.00</p>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <p class="text-muted mb-0"><%= DateTime.current.to_date %></p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">IVA 16%</span> 123</p>
+                          </div>
+                          <div class="d-flex justify-content-between mb-5">
+                            <p class="text-muted mb-0"><%= current_user.address %></p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery</span>Gratis</p>
+                          </div>
+                        </div>
+                        <div class="card-footer border-0 px-4 py-5 modal-footer" style="background-color: #8C53C6; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                          <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+                            Total a pagar: <span class="h2 mb-0 ms-2" data-add-quantity-target="price_total">$<%= @product.price %></span>
+                          </h5>
+                          <%= f.submit "Create", class: "btn btn-ligh bg-white" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <button data-action="click->add-quantity#add" class="btn-inc" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  <i class="fas fa-plus"></i>
+                </button>
               </div>
+                <%# <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
+              <%= if user_signed_in? %>
+                <button type="button" class="btn btn-details btn-warning shadow-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Comprar
+                </button>
+              <% else %>
+                <%= link_to "Comprar", new_user_session_path, class:"btn btn-details btn-warning shadow-0" %>
+              <% end %>
             </div>
           </div>
+        </div>
           <%# <% if current_user == @product.user %>
           <%# <%= link_to "Editar Producto", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
           <%# <% end %>
-          </div>
       </main>
     </div>
   </div>
 </section>
-
-
-<%= simple_form_for([@product, @order]) do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :quantity %>
-    <% f.input :product_id, value: @product %>
-  </div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <section class="h-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-10 col-xl-8">
-        <div class="card" style="border-radius: 10px;">
-          <div class="card-header px-4 py-5">
-            <h4 class="text-muted mb-0"> <i class="fa-solid fa-cat"></i> Confirma tu orden </h4>
-          </div>
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-center mb-4"><%=  %>
-
-              <p class="small mb-0"><%= current_user.first_name %> <%= current_user.last_name %></p>
-            </div>
-            <div class="card shadow-0 border mb-4">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-2">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
-                      class="img-fluid" alt="Phone">
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0"><%= @product.title %></p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small"><%= @product.brand %></p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small"><%= @product.pet %></p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">1X</p>
-                  </div>
-                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                    <p class="text-muted mb-0 small">$<%= @product.price %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex justify-content-between pt-2">
-              <p class="fw-bold mb-0">Detalles de orden</p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> $<%= @product.price %></p>
-            </div>
-            <div class="d-flex justify-content-between pt-2">
-              <p class="text-muted mb-0"><%= current_user.phone_number %></p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Descuento</span> $19.00</p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p class="text-muted mb-0"><%= DateTime.current.to_date %></p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">IVA 16%</span> 123</p>
-            </div>
-            <div class="d-flex justify-content-between mb-5">
-              <p class="text-muted mb-0"><%= current_user.address %></p>
-              <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery</span>Gratis</p>
-            </div>
-          </div>
-          <div class="card-footer border-0 px-4 py-5"
-            style="background-color: #8C53C6; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
-              a pagar: <span class="h2 mb-0 ms-2">$1040</span></h5>
-          </div>
-        </div>
-            <%= link_to "Comprar", products_path, class: "btn btn-details mr-2 fas fa-link" %>
-            <%= link_to "Regresar", products_path, class: "btn btn-details mr-2 fas fa-link" %>
-      </div>
-    </div>
-  </div>
-</section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <%= f.submit "Create", class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-
 
 <!-- content -->
