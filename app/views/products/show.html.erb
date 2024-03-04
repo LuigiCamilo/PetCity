@@ -117,7 +117,7 @@
                 </button>
               </div>
                 <%# <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
-              <%= if user_signed_in? %>
+              <% if user_signed_in? %>
                 <button type="button" class="btn btn-details btn-warning shadow-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   Comprar
                 </button>
