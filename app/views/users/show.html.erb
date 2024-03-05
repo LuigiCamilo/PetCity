@@ -7,8 +7,9 @@
             <% else %>
               <img class="rounded-circle mt-5" width="150px" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
         <% end %>
-        <span class="font-weight-bold"><%= @user.first_name %></span>
-        <span class="text-black-50"><%= @user.email %></span><span> </span>
+        <span class="font-weight-bold mt-2"><%= @user.first_name %></span>
+        <span class="text-black-50 mb-4"><%= @user.email %></span><span> </span>
+        <%= link_to "Editar", edit_user_registration_path(current_user), class: "btn btn-details2 mr-2" %>
       </div>
     </div>
     <div class="col-md-8">

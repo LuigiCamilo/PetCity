@@ -1,5 +1,6 @@
 :root {
-  --gradient: linear-gradient(to left top, #F4524D 10%, #5543CA 90%) !important;
+  --gradient: linear-gradient(to left top, #A72879 10%, #064497 90%);
+  --gradientHover: linear-gradient(to left top,  #064497 10%, #A72879 90%);
 }
 
 .card {
@@ -9,6 +10,7 @@
   font-weight: bold;
   margin-bottom: 2rem;
   text-align: center;
+  border-radius: .5rem;
 }
 
 .card-title {
@@ -17,6 +19,8 @@
   font-family: Nunito;
   color: #5543CA;
   font-weight: bold;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
 .btn.btn-details {
@@ -28,9 +32,21 @@
   -webkit-text-fill-color: transparent;
   border-image-source:  var(--gradient);
   text-decoration: none;
-  transition: all .4s ease;
+  transition: all .6s ease;
 }
-
+.btn-details2{
+  font-weight: bold;
+  background: var(--gradient);
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all .6s ease;
+  color: var(--white);
+  border: none;
+}
+.btn-details2:hover{
+  background: var(--gradientHover);
+  color: var(--white);
+}
 .btn.btn-details:hover, .btn.btn-details:focus {
   background: var(--gradient);
   -webkit-background-clip: none;

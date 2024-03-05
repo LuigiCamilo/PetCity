@@ -1,20 +1,20 @@
 <section class="get-in-touch section_form">
-   <h1 class="title">Edit <%= resource_name.to_s.humanize %></h1>
+   <h1 class="title">Editar Usuario</h1>
    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "contact-form row" }) do |f| %>
       <%= f.error_notification %>
       <div class="form-field col-lg-12">
-         <%= f.input :email, required: true, autofocus: true, input_html: { class: "input-text js-input", id: "email" } %>
+         <%= f.input :email, label: "Correo", required: true, autofocus: true, input_html: { class: "input-text js-input", id: "email" } %>
          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
          <% end %>
-         <%= f.input :password, hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password" } %>
-         <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
-         <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password", class: "input-text js-input", id: "current_password" } %>
-         <%= f.input :first_name, required: true, input_html: { autocomplete: "first_name", class: "input-text js-input", id: "first_name" } %>
-         <%= f.input :last_name, required: true, input_html: { autocomplete: "last_name", class: "input-text js-input", id: "last_name" } %>
-         <%= f.input :phone_number, required: true, input_html: { autocomplete: "phone_number", class: "input-text js-input", id: "phone_number" } %>
-         <%= f.input :address, required: true, input_html: { autocomplete: "address", class: "input-text js-input", id: "address" } %>
-         <%= f.input :photo, as: :file, input_html: { required: true } %>
+         <%= f.input :password, label: "Nueva contraseña", hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password" } %>
+         <%= f.input :password_confirmation, label: "Confirmar contraseña", required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
+         <%= f.input :current_password, label: "Contraseña actual", hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password", class: "input-text js-input", id: "current_password" } %>
+         <%= f.input :first_name, label: "Nombre", required: true, input_html: { autocomplete: "first_name", class: "input-text js-input", id: "first_name" } %>
+         <%= f.input :last_name, label: "Apellido", required: true, input_html: { autocomplete: "last_name", class: "input-text js-input", id: "last_name" } %>
+         <%= f.input :phone_number, label: "Número de teléfono", required: true, input_html: { autocomplete: "phone_number", class: "input-text js-input", id: "phone_number" } %>
+         <%= f.input :address, label: "Dirreción", required: true, input_html: { autocomplete: "address", class: "input-text js-input", id: "address" } %>
+         <%= f.input :photo, label: "Foto", as: :file, input_html: { required: true } %>
       </div>
       </div>
       <div class="form-actions col-lg-12 d-flex">
