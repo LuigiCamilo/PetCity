@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   get "products/:id/confirm", to: "products#confirm"
-  get "products/:id/complete", to: "products#complete"
+  get "products/:id/complete", to: "products#complete", as: :complete_products
   # Defines the root path route ("/")
   # root "products#index"
 end

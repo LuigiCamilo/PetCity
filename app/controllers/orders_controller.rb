@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
         #implementar redireccionar a complete de productos
         product.stock -= @order.quantity
         product.save
-        redirect_to product_path(product)
+        redirect_to complete_products_path(product)
       else
         render :new, status: :unprocessable_entity
       end
