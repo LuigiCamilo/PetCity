@@ -26,8 +26,10 @@
 # product.photo.attach(io: file, filename: "cesta_gato.png", content_type: "image/png")
 # product.save
 
-User.destroy_all
+Order.destroy_all
 Product.destroy_all
+User.destroy_all
+
 # db/seeds.rb
 # Usuario de Vendedores
 mario = User.create!(
@@ -40,7 +42,7 @@ mario = User.create!(
 )
 mario.photo.attach(io: File.open('app/assets/images/profiles/male_user.jpg'), filename: 'male_user.jpg', content_type: 'image/jpeg')
 jessica = User.create!(
-  email: 'rami@gmail.com',
+  email: 'jessica@gmail.com',
   password: '123456',
   first_name: 'Jessica',
   last_name: 'Chastain',
@@ -50,57 +52,53 @@ jessica = User.create!(
 jessica.photo.attach(io: File.open('app/assets/images/profiles/female_user.jpg'), filename: 'female_user.jpg', content_type: 'image/jpeg')
 # Nombre de los perfumes e imagenes
 products = [
-  { title: 'Comida para perro', image: 'Sauvage.jpg' },
-  { title: 'Cesta de gato', image: 'Vogue.jpg' },
-  { title: 'Comida para hamsters', image: 'Chanel.jpg' },
-  { title: 'Comida para gatos', image: 'Yves_Saint_Laurent.jpg' },
-  { title: 'Comida para gatos', image: 'Boss.jpg' },
-  { title: 'Comida para gatos', image: 'Hugo.jpg' },
-  { title: 'Jaula para pájaros', image: 'Armaf.jpg' },
-  { title: 'Collar de perro', image: 'Nautica_Voyage.jpg' },
-  { title: 'Rueda de hamster', image: 'Lattafa.jpg' },
-  { title: "Juguete de perro", image: "L'Bel_Bleu.jpg" }
+  { title: 'Comida para perro', image: 'comida_perro.jpg', price: 20, stock: 7, pet: "Perros", category: "Alimento", brand: "Dogourmet" },
+  { title: 'Cesta de gato', image: 'cesta_gato.jpg', price: 50, stock: 4, pet: "Gatos", category: "Muebles", brand: "RB Diseños" },
+  { title: 'Comida para hamsters', image: 'comida_hamster.jpg', price: 7.5, stock: 6, pet: "Roedores", category: "Alimento", brand: "Vita Prima" },
+  { title: 'Comida para gatos Max Vita', image: 'comida_gato_1.jpg', price: 7, stock: 15, pet: "Gatos", category: "Alimento", brand: "Max Vita" },
+  { title: 'Comida para gatos Whiskas', image: 'comida_gato_2.jpg', price: 8, stock: 10, pet: "Gatos", category: "Alimento", brand: "Whiskas" },
+  { title: 'Comida para gatos Mirringo', image: 'comida_gato_3.jpg', price: 10, stock: 11, pet: "Gatos", category: "Alimento", brand: "Mirringo" },
+  { title: 'Jaula para pájaros', image: 'balancin_pajaro.jpg', price: 2.5, stock: 6, pet: "Aves", category: "Juguetes", brand: "SPRING PARK"  },
+  { title: 'Collar de perro', image: 'collar_perro.jpg', price: 12.5, stock: 2, pet: "Perros", category: "Accesorios" , brand: "My Sweet Star Pink" },
+  { title: 'Rueda de hamster', image: 'rueda_hamster.jpg', price: 4.7, stock: 3, pet: "Roedores", category: "Juguetes", brand: "BUCATSTATE" },
+  { title: "Juguete de perro", image: "juguete_perro.jpg", price: 8.99, stock: 7, pet: "Perros", category: "Juguetes" , brand: "Genérico" }
 ]
 # Descripciones detalladas para cada perfume
 descriptions = {
-  'Sauvage' => 'Una fragancia sensual para hombres, con notas de bergamota, ámbar y pachulí.',
-  'Vogue' => 'Vogue perfume es una fragancia para mujeres que se destaca por sus notas florales y aldehídicas. ' \
-           'Al aplicar el perfume, se recomienda evitar frotar las muñecas para no romper las notas y ' \
-           'aplicarlo en puntos estratégicos como la parte trasera de las orejas, el escote, las muñecas, ' \
-           'los tobillos y la parte trasera de las rodillas',
-  'Chanel' => 'Una fragancia icónica tanto para hombres como para mujeres, con toques cítricos, jazmín y sándalo.',
-  'Yves_Saint_Laurent' => 'Una fragancia atrevida y sofisticada con notas de grosella negra, rosa y vainilla.',
-  'Boss' => 'Una fragancia fresca y enérgica para hombre, con toques de manzana, cítricos y sándalo.',
-  'Hugo' => 'Una fragancia moderna y urbana para hombre, con notas de menta, lavanda y vetiver.',
-  'Armaf' => 'Armaf es una marca de fragancias que ofrece una amplia gama de perfumes para hombres y mujeres. La marca es conocida por ofrecer una variedad de fragancias de alta calidad a precios asequibles. Sus perfumes abarcan una variedad de estilos y notas aromáticas, desde frescos y florales hasta amaderados y orientales.',
-  'Nautica_Voyage' => 'Es una fragancia para hombres lanzada por la marca Nautica. Es conocida por su frescura y su aroma marino, inspirado en la navegación y la aventura en el mar. Esta fragancia se caracteriza por sus notas frescas y acuáticas que evocan la sensación de la brisa marina y la libertad del océano.',
-  'Lattafa' => 'Lattafa ofrece una variedad de fragancias para hombres y mujeres, que van desde opciones dulces y afrutadas hasta fragancias más intensas y orientales. Sus perfumes suelen ser duraderos y cuentan con una excelente proyección, lo que los hace ideales para diversas ocasiones.',
-  "L'Bel_Bleu" => "L'Bel es una reconocida marca de cosméticos que ofrece una amplia gama de productos para el cuidado facial, corporal y capilar."
+  'Comida para perro' => 'Alimento para perros en edad adulta. 30kg. Sabor carne a la parrilla',
+  'Cesta de gato' => 'El Gar Basket  se convertirá en el refugio favorito de tu gato. La cesta incluye un cómodo cojín para
+                  tu mascota y dos orejas de gato en la parte superior. La cesta está
+                  hecha de jacinto de agua y hierro y es una pieza muy decorativa, un verdadero punto de atracción.
+                  Sabor carne a la parrilla',
+  'Comida para hamsters' => 'Sunseed® Vita Prima™ Sun Salad para Hamsters 8 Oz',
+  'Comida para gatos Max Vita' => 'Alimento Gato Max Vita Castrado Selection Pollo - 1 Kg',
+  'Comida para gatos Whiskas' => 'Whiskas Adulto 7+ Senior Mackerel comida seca para gatos 1.1kg',
+  'Comida para gatos Mirringo' => 'Gatarina Mirringo X 8kg Adultos 1+. Rico en vitaminas y minerales esenciales',
+  'Jaula para pájaros' => 'Soporte de percha de mesa de madera para pájaros pequeños',
+  'Collar de perro' => 'Bonito y Exclusivo collar para perros 100% handmade en España.',
+  'Rueda de hamster' => 'Rueda Hamster Silenciosa 15cm. Juguete de Hámster Transparente de Ejercicio para roedores',
+  "Juguete de perro" => "Nudo de juguete masticable de cuerda de algodón para tirar para perros.
+                  Juega a la limpieza interactiva de dientes"
 }
 # Crear productos y adjuntar imágenes
-perfumes.each do |perfume|
-  product = Product.create!(
-    name: perfume[:name],
-    description: descriptions[perfume[:name]],  # Usar la descripción detallada
-    price: rand(10.0..100.0).round(2),
+products.each do |product|
+  product_new = Product.create!(
+    title: product[:title],
+    description: descriptions[product[:title]], # Usar la descripción detallada
+    price: product[:price],
+    stock: product[:stock],
+    category: product[:category],
+    pet: product[:pet],
+    brand: product[:brand],
     user_id: User.pluck(:id).sample
   )
   # Adjuntar imagen al producto
-  image_path = Rails.root.join('app', 'assets', 'images', 'perfumes', perfume[:image])
+  image_path = Rails.root.join('app', 'assets', 'images', 'products', product[:image])
   image_blob = ActiveStorage::Blob.create_and_upload!(
     io: File.open(image_path),
-    filename: perfume[:image],
+    filename: product[:image],
     content_type: 'image/jpeg'
   )
-  product.photo.attach(image_blob)
+  product_new.photo.attach(image_blob)
+  product_new.save
 end
-# Usuario de Comprador
-carlos = User.create!(
-  email: 'carlos@gmail.com',
-  password: '12345678',
-  name: 'Carlos',
-  last_name: 'Landaeta',
-  phone_number: '987654321',
-  address: 'La Trinidad'
-)
-carlos.photo.attach(io: File.open('app/assets/images/perfiles/User_Hombre2.jpg'), filename: 'User_Hombre2.jpg', content_type: 'image/jpeg')
