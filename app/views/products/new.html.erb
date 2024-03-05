@@ -1,32 +1,44 @@
-<section class="get-in-touch section_form">
-   <h1 class="title">Products#new</h1>
+<section class="get-in-touch section_form" style="max-width: 1000px;">
+   <h1 class="title"><i class="fas fa-shopping-bag">  Product New</i></h1>
    <%= simple_form_for @product, html: { class: "contact-form row" } do |f| %>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
          <%= f.input :title, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
         <%= f.input :pet, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
         <%= f.input :brand, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
         <%= f.input :category, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
          <%= f.input :price, input_html: { class: "input-text js-input", required: true } %>
       </div>
-      <div class="form-field col-lg-6">
+      <div class="form-field col-lg-4">
          <%= f.input :stock, input_html: { class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12">
-          <%= f.input :photo, as: :file, input_html: { class: "input-text js-input", required: true } %>
+          <%= f.input :photo, as: :file, input_html: { id:"photo-product", class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12">
          <%= f.input :description, input_html: { class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12 d-flex">
-         <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary" %>
+         <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary", id: "create_product" %>
       </div>
    <% end %>
 </section>
+<script>
+const foto = document.querySelector("#photo-product");
+const submit = document.querySelector("#create_product.submit-btn");
+console.log(submit);
+submit.addEventListener("click", (event) => {
+  if (foto.files.length === 0) {
+     event.preventDefault();
+     alert("Debes ingresar una fotografia de tu producto");
+     console.log(foto);
+  }
+});
+</script>

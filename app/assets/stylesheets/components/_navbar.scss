@@ -10,3 +10,28 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.search-form {
+  width: auto;
+}
+
+.search-form .search-input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.search-form .submit-btn {
+  display: inline-block;
+  background-color: #000;
+   background-image: linear-gradient(125deg,#a72879,#064497);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-right: 230px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

@@ -4,9 +4,14 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where('stock > ?', 0)
+    if params[:query].present?
+      @products = Product.search(params[:query])
+    end
   end
 
-  def show; end
+  def show
+    @order = Order.new
+  end
 
   def new
     @product = Product.new
@@ -37,6 +42,12 @@ class ProductsController < ApplicationController
   def destroy
     @product.stock = 0
     redirect_to products_path, status: :see_other
+  end
+
+  def confirm
+  end
+
+  def complete
   end
 
   private

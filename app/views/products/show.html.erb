@@ -2,63 +2,135 @@
 <section class="py-5">
   <div class="container">
     <div class="row gx-5">
-      <aside class="col-lg-6">
-        <div class="border rounded-4 mb-3 d-flex justify-content-center w-300 h-300" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-          url('<%= url_for @product.photo %>')">
+      <aside class="col-lg-6 p-0">
+        <div class="mb-3 d-flex justify-content-center">
+          <%= cl_image_tag @product.photo.key, :class => "w-100 rounded-4"%>
         </div>
         <!-- thumbs-wrap.// -->
         <!-- gallery-wrap .end// -->
       </aside>
       <main class="col-lg-6">
-          <h4 class="title text-dark"><%= @product.title %></h4>
-          <div class="mb-3">
-          <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= @product.stock %></span>
+        <p class="company_name">PetCity Company</p>
+        <h4 class="title product-title text-dark"><%= @product.title %></h4>
+        <div class="mb-3">
+          <span class="text-muted" id="stock"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= @product.stock %></span>
           <span class="text-success ms-2">En stock</span>
 
-          </div>
-            <span class="h5">$<%= @product.price %></span>
-            <span class="text-muted">/por unidad</span>
-
-          <p class="mt-2">
+        </div>
+        <span class="h5">$<%= @product.price %></span>
+        <span class="text-muted">/por unidad</span>
+        <p class="mt-2 product-detail">
           <%= @product.description %>
-          </p>
-
-          <div class="row">
-            <dt class="col-3">Categoria:</dt>
-            <dd class="col-9"><%= @product.category %></dd>
-
-            <dt class="col-3">Especie</dt>
-            <dd class="col-9"><%= @product.pet %></dd>
-
-            <dt class="col-3">Marca</dt>
-            <dd class="col-9"><%= @product.brand %></dd>
-          </div>
-
-          <hr />
-
-          <div class="row mb-4">
-
-            <!-- col.// -->
-            <div class="col-md-4 col-6 mb-3">
-              <label class="mb-2 d-block">Cantidad</label>
-              <div class="input-group mb-3" style="width: 170px;">
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon1" data-mdb-ripple-color="dark">
+        </p>
+        <div class="row">
+          <dt class="col-3">Categoria:</dt>
+          <dd class="col-9"><%= @product.category %></dd>
+          <dt class="col-3">Especie</dt>
+          <dd class="col-9"><%= @product.pet %></dd>
+          <dt class="col-3">Marca</dt>
+          <dd class="col-9"><%= @product.brand %></dd>
+        </div>
+        <hr />
+        <div class="row mb-4">
+          <div class="col-md-4 col-6 mb-3 w-100">
+            <div class="input-group mb-3 gap-3 d-flex gap-3 mt-3 w-100">
+              <div class="inc_dec_button" data-controller="add-quantity" data-add-quantity-price-value="<%= @product.price %>">
+                <button data-action="click->add-quantity#minus" class="btn-inc" type="button" id="button-addon1" data-mdb-ripple-color="dark">
                   <i class="fas fa-minus"></i>
                 </button>
-                <input type="text" class="form-control text-center border border-secondary" placeholder="14" aria-label="Example text with button addon" aria-describedby="button-addon1" />
-                <button class="btn btn-white border border-secondary px-3" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                <%= simple_form_for([@product, @order]) do |f| %>
+                  <div class="form-inputs h-100 d-flex align-items-center">
+                    <%= f.input :quantity, label: false, input_html: {
+                      style: 'width: 47px;background-color: transparent; border: none;',
+                      'data-add-quantity-target': 'input',
+                      'readonly': 'readonly',
+                      value: 1 }
+                    %>
+                    <% f.input :product_id, value: @product %>
+                  </div>
+                      <%# <%= render 'share/modal' %>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <%# <div class="modal-dialog"> %>
+                      <div class="modal-content rounded-4">
+                        <div class="card-header px-4 py-5 modal-header">
+                          <h4 class="text-muted mb-0">Confirma tu orden <i class="fa-solid fa-cat"></i></h4>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="card-body p-4 modal-body">
+                          <div class="d-flex justify-content-between align-items-center mb-4"><%=  %>
+                            <p class="small mb-0"><%= current_user.first_name if user_signed_in? %> <%= current_user.last_name if user_signed_in? %></p>
+                          </div>
+                          <div class="card shadow-0 border mb-4">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-2">
+                                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp" class="img-fluid" alt="Phone">
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0"><%= @product.title %></p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small"><%= @product.brand %></p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small"><%= @product.pet %></p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small" data-add-quantity-target="quantity">1X</p>
+                                </div>
+                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                  <p class="text-muted mb-0 small">$<%= @product.price %></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between pt-2">
+                            <p class="fw-bold mb-0">Detalles de orden</p>
+                            <p class="text-muted mb-0">Total <span class="fw-bold me-4" data-add-quantity-target="price">$<%= @product.price %></span> </p>
+                          </div>
+                          <div class="d-flex justify-content-between pt-2">
+                            <p class="text-muted mb-0"><%= current_user.phone_number if user_signed_in? %></p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">Descuento</span> $19.00</p>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <p class="text-muted mb-0"><%= DateTime.current.to_date %></p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">IVA 16%</span> 123</p>
+                          </div>
+                          <div class="d-flex justify-content-between mb-5">
+                            <p class="text-muted mb-0"><%= current_user.address if user_signed_in? %></p>
+                            <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery</span>Gratis</p>
+                          </div>
+                        </div>
+                        <div class="card-footer border-0 px-4 py-5 modal-footer" style="background-color: #8C53C6; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                          <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+                            Total a pagar: <span class="h2 mb-0 ms-2" data-add-quantity-target="price_total">$<%= @product.price %></span>
+                          </h5>
+                          <%= f.submit "Create", class: "btn btn-ligh bg-white" %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <button data-action="click->add-quantity#add" class="btn-inc" type="button" id="button-addon2" data-mdb-ripple-color="dark">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
+                <%# <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
+              <% if user_signed_in? %>
+                <button type="button" class="btn btn-details btn-warning shadow-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Comprar
+                </button>
+              <% else %>
+                <%= link_to "Comprar", new_user_session_path, class:"btn btn-details btn-warning shadow-0" %>
+              <% end %>
             </div>
           </div>
-          <%= link_to "Comprar", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
-          <% if current_user == @product.user %>
-          <%= link_to "Editar Producto", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
-          <% end %>
-          </div>
+        </div>
+          <%# <% if current_user == @product.user %>
+          <%# <%= link_to "Editar Producto", edit_product_path, class:"btn btn-details btn-warning shadow-0" %>
+          <%# <% end %>
       </main>
     </div>
   </div>
 </section>
-<!-- content -->

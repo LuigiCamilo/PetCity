@@ -1,72 +1,41 @@
 <%= render 'share/banner' %>
 <div class="container">
   <section>
-    <h2 class="mt-4">Supplies</h2>
-    <div class="card-container d-flex">
-      <div class="card-product">
-        <img src="<%= asset_path 'pexels-photo-9480588.jpeg' %>" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
+    <h2 class="mt-4">Algunos de nuestros productos</h2>
+    <div class="card-container d-flex justify-content-center">
+        <% @products.limit(6).each do |product| %>
+        <div class="card-product">
+          <%= render 'product_home', product: product %>
       </div>
-      <div class="card-product">
-        <img src="<%= asset_path 'istockphoto-1365754761-1024x1024.jpeg' %>" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-      <div class="card-product">
-        <img src="<%= asset_path 'istockphoto-1320314988-1024x1024.jpeg' %>" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-      <div class="card-product">
-        <img src="<%= asset_path 'istockphoto-1152663825-1024x1024.jpeg' %>" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-      <div class="card-product">
-        <img src="<%= asset_path 'istockphoto-1017046150-1024x1024.jpg' %>" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-    </div>
+      <% end %>
   </section>
 </div>
+
 <section>
   <div class="activites">
-    <div style="background-image: url(<%= asset_path 'pexels-photo-1404819.webp' %>)"></div>
-    <div style="background-image: url(<%= asset_path 'dcbab12ee6f7751d8cf1f55da4bb7978.png' %>)">
-      <h3>El pana rabbit</h3>
+    <div style="background-image: url(<%= asset_path 'pexels-photo-1404819.webp' %>)">
+    <h3><%= link_to "Gatos", controller: "products", query: "gatos"%></h3>
     </div>
-    <div  style="background-image: url(<%= asset_path '2d2c95cd9dee23a253bd833d060813ec.png' %>)"></div>
-    <div></div>
-    <div style="background-image: url(<%= asset_path 'f0ad948d7cf48a2ae59c76b411ca3f37.png' %>)"></div>
+    <div style="background-image: url(<%= asset_path 'dcbab12ee6f7751d8cf1f55da4bb7978.png' %>)">
+      <h3><%= link_to "Roedores", controller: "products", query: "roedores"%></h3>
+    </div>
+    <div style="background-image: url(<%= asset_path '2d2c95cd9dee23a253bd833d060813ec.png' %>)">
+    <h3><%= link_to "Perros", controller: "products", query: "perros"%></h3></div>
+    <div style="background-image: url(<%= asset_path 'pata-removebg-preview.png' %>)">
+    <h2><%= link_to "¡Compra ahora!", products_path, class:"text-white text-decoration-none" %></h2>
+    </div>
+    <div id="birds" style="background-image: url(<%= asset_path 'f0ad948d7cf48a2ae59c76b411ca3f37.png' %>)">
+    <h3><%= link_to "Aves", controller: "products", query: "aves"%></h3></div>
+
   </div>
 </section>
 <section class="container">
   <div class="about">
     <div class="description">
-      <h3>title</h3>
+      <h3>¿Quienes somos?</h3>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor facere autem ex beatae aut.
-        Assumenda natus quaerat architecto similique voluptatibus blanditiis porro dolorum quisquam nisi adipisci?
-        Provident saepe eaque tempore?
+        PetCity es plataforma que te permite comprar y vender productos que hagan feliz a tu familia animal.
+        Consigue en su solo lugar todo lo que necesites a los mejores precios.
       </p>
     </div>
     <img style="width: 100%;" src="<%= asset_path '2d2c95cd9dee23a253bd833d060813ec.png' %>" alt="">
