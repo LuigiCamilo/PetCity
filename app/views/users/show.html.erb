@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-md-4 border-right">
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-        <img class="rounded-circle mt-5" width="150px" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+        <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "rounded-circle mt-5", width: "100%" %>
+            <% else %>
+              <img class="rounded-circle mt-5" width="150px" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+        <% end %>
         <span class="font-weight-bold"><%= @user.first_name %></span>
         <span class="text-black-50"><%= @user.email %></span><span> </span>
       </div>

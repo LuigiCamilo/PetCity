@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
       @order.price = product.price * @order.quantity
       @order.user = current_user
       if @order.save
-        # implementar redireccionar a complete de productos
+        #implementar redireccionar a complete de productos
         product.stock -= @order.quantity
         product.save
         redirect_to product_path(product)

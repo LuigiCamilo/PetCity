@@ -14,6 +14,8 @@
          <%= f.input :last_name, required: true, input_html: { autocomplete: "last_name", class: "input-text js-input", id: "last_name" } %>
          <%= f.input :phone_number, required: true, input_html: { autocomplete: "phone_number", class: "input-text js-input", id: "phone_number" } %>
          <%= f.input :address, required: true, input_html: { autocomplete: "address", class: "input-text js-input", id: "address" } %>
+         <%= f.input :photo, as: :file, input_html: { required: true } %>
+      </div>
       </div>
       <div class="form-actions col-lg-12 d-flex">
          <%= f.button :submit, "Update", class: "submit-btn btn btn-warning" %>
