@@ -58,7 +58,11 @@
                     <td class="th_product" ><%= product.price %></td>
                     <td class="th_product" ><%= product.stock %></td>
                     <td class="th_product"><%= product.category %></td>
-                    <td class="th_product"> <%= cl_image_tag product.photo.key, :class => "rounded-4 photo_product"%></td>
+                    <td class="th_product">
+                      <%= link_to product_path(product) do %>
+                        <%= cl_image_tag product.photo.key, :class => "rounded-4 photo_product"%>
+                      <% end %>
+                    </td>
                   </tr>
                 <% end %>
               </tbody>
