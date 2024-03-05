@@ -1,30 +1,30 @@
 <section class="get-in-touch section_form">
-   <h1 class="title">Sign up</h1>
+   <h1 class="title">Registrarme</h1>
    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "contact-form row" }) do |f| %>
       <%= f.error_notification %>
       <div class="form-field col-lg-6">
-         <%= f.input :first_name, required: true, input_html: { autocomplete: "first_name", class: "input-text js-input", id: "first_name" } %>
+         <%= f.input :first_name, label:"Nombre",required: true, input_html: { autocomplete: "first_name", class: "input-text js-input", id: "first_name" } %>
       </div>
       <div class="form-field col-lg-6">
-         <%= f.input :last_name, required: true, input_html: { autocomplete: "last_name", class: "input-text js-input", id: "last_name" } %>
+         <%= f.input :last_name, label:"Apellido",required: true, input_html: { autocomplete: "last_name", class: "input-text js-input", id: "last_name" } %>
       </div>
       <div class="form-field col-lg-6">
-         <%= f.input :phone_number, required: true, input_html: { autocomplete: "phone_number", class: "input-text js-input", id: "phone_number" } %>
+         <%= f.input :phone_number, label:"Teléfono",required: true, input_html: { autocomplete: "phone_number", class: "input-text js-input", id: "phone_number" } %>
       </div>
       <div class="form-field col-lg-6">
-         <%= f.input :address, required: true, input_html: { autocomplete: "address", class: "input-text js-input", id: "address" } %>
+         <%= f.input :address, label:"Dirección",required: true, input_html: { autocomplete: "address", class: "input-text js-input", id: "address" } %>
       </div>
       <div class="form-field col-lg-6">
          <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email", class: "input-text js-input", id: "email" } %>
       </div>
       <div class="form-field col-lg-6">
-         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password" } %>
+         <%= f.input :password, label:"Contraseña",required: true, hint: ("#{@minimum_password_length} caracteres como mínimo" if @minimum_password_length), input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password" } %>
       </div>
       <div class="form-field col-lg-12">
-         <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
+         <%= f.input :password_confirmation, label:"Confirmar contraseña",required: true, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
       </div>
       <div class="form-actions col-lg-12 d-flex">
-         <%= f.button :submit, "Sign up", class: "submit-btn btn btn-warning" %>
+         <%= f.button :submit, "Registrarse", class: "submit-btn btn btn-warning mb-3" %>
       </div>
    <% end %>
    <%= render "devise/shared/links" %>
