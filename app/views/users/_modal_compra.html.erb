@@ -1,0 +1,48 @@
+<div class="modal fade" id="modal<%= compra.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+
+  <div class="container">
+    <div class="invoice">
+      <div class="invoice-header">
+        <div class="invoice-logo">
+          <h2><strong>Pet</strong><strong>City.</strong></h2>
+        </div>
+        <h2 class="invoice-title">Factura #<%= compra.id + 1000 %></h2>
+        <div class="invoice-details">
+          <p><strong>Fecha:</strong> <%= compra.created_at %></p>
+          <p><strong>Cliente:</strong> <%= compra.user.first_name %> <%= compra.user.last_name %></p>
+          <% if compra.user.address != "" %>
+              <p><strong>Direccion:</strong> <%= compra.user.address %></p>
+          <% end %>
+          <% if compra.product.category != "" %>
+              <p><strong>Categoria:</strong> <%= compra.product.category %></p>
+          <% end %>
+          <% if compra.product.pet != "" %>
+              <p><strong>Mascota:</strong> <%= compra.product.pet %></p>
+          <% end %>
+          <% if compra.product.brand != "" %>
+              <p><strong>Marca:</strong> <%= compra.product.brand %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="invoice-items">
+        <div class="invoice-item">
+          <p><strong>Producto:</strong> <%= compra.product.title %></p>
+          <p><strong>Cantidad:</strong> <%= compra.quantity %></p>
+          <p><strong>Precio(unidad):</strong> $<%= compra.product.price %></p>
+        </div>
+      </div>
+      <div class="invoice-total">
+        <p><strong>Total:</strong> $<%= compra.price %></p>
+      </div>
+      <div class="thank-you">
+        <p>¡Gracias por su compra!</p>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>

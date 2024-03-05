@@ -18,3 +18,60 @@
   --color-primary: #5543CA;
   --White: #ffffff;
 }
+body{
+  background-color: var(--White);
+}
+.company_name{
+  letter-spacing: 2px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.product-title {
+  font-size: 2rem;
+  line-height: 1;
+}
+.product-detail{
+  color: hsl(219, 9%, 45%);
+  line-height: 2;
+  font-size: 1.5rem;
+}
+.inc_dec_button {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  width: 150px;
+}
+.btn-inc{
+  border-radius: 1rem;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .25s;
+  display: grid;
+  place-items: center;
+  background-color: #f9f9f9;
+  color: var(--color-primary);
+}
+.inc_dec_button .item_amount{
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+.table tr .th_product{
+  background-color: var(--White);
+}
+.table > thead > tr th{
+  border: none;
+}
+.photo_product{
+  width: 50px;
+  height: 50px;
+}
+// .form-inputs{
+//   height: 100%;
+// }
+.form-inputs :nth-child(1){
+  margin-bottom: 0 !important;
+}

@@ -26,17 +26,19 @@
          <%= f.input :description, input_html: { class: "input-text js-input", required: true } %>
       </div>
       <div class="form-field col-lg-12 d-flex">
-         <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary" %>
+         <%= f.button :submit, "Submit list", class: "submit-btn btn btn-primary", id: "create_product" %>
       </div>
    <% end %>
 </section>
 <script>
 const foto = document.querySelector("#photo-product");
-const submit = document.querySelector(".submit-btn");
+const submit = document.querySelector("#create_product.submit-btn");
+console.log(submit);
 submit.addEventListener("click", (event) => {
   if (foto.files.length === 0) {
      event.preventDefault();
      alert("Debes ingresar una fotografia de tu producto");
+     console.log(foto);
   }
 });
 </script>

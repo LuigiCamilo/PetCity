@@ -10,6 +10,10 @@
          <%= f.input :password, hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password" } %>
          <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password", class: "input-text js-input", id: "password_confirmation" } %>
          <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password", class: "input-text js-input", id: "current_password" } %>
+         <%= f.input :first_name, required: true, input_html: { autocomplete: "first_name", class: "input-text js-input", id: "first_name" } %>
+         <%= f.input :last_name, required: true, input_html: { autocomplete: "last_name", class: "input-text js-input", id: "last_name" } %>
+         <%= f.input :phone_number, required: true, input_html: { autocomplete: "phone_number", class: "input-text js-input", id: "phone_number" } %>
+         <%= f.input :address, required: true, input_html: { autocomplete: "address", class: "input-text js-input", id: "address" } %>
       </div>
       <div class="form-actions col-lg-12 d-flex">
          <%= f.button :submit, "Update", class: "submit-btn btn btn-warning" %>

@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img class="rounded-circle mt-5" width="150px" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+        <span class="font-weight-bold"><%= @user.first_name %></span>
+        <span class="text-black-50"><%= @user.email %></span><span> </span>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="p-3 py-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+              Profile
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+              Mis productos
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="compras-tab" data-bs-toggle="tab" data-bs-target="#compras" type="button" role="tab" aria-controls="compras" aria-selected="false">Compras</button>
+          </li>
+           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="ventas-tab" data-bs-toggle="tab" data-bs-target="#ventas" type="button" role="tab" aria-controls="ventas" aria-selected="false">Ventas</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active p-3" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <p><strong>Nombre completo:</strong> <%= " #{@user.first_name}  #{@user.last_name}" %></p>
+            <p><strong>Email:</strong> <%= @user.email %></p>
+            <p><strong>Número:</strong> <%= @user.phone_number %></p>
+            <p><strong>Dirección:</strong> <%= @user.address %></p>
+          </div>
+          <div class="tab-pane fade p-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th class="th_product" scope="col">Nombre</th>
+                  <th class="th_product" scope="col">Precio</th>
+                  <th class="th_product" scope="col">Stock</th>
+                  <th class="th_product" scope="col">Categoria</th>
+                  <th class="th_product" scope="col">Image</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @products.each do |product|  %>
+                  <tr>
+                    <!-- Button trigger modal -->
+                    <td class="th_product" scope="row"><%= product.title %></td>
+                    <td class="th_product" ><%= product.price %></td>
+                    <td class="th_product" ><%= product.stock %></td>
+                    <td class="th_product"><%= product.category %></td>
+                    <td class="th_product"> <%= cl_image_tag product.photo.key, :class => "rounded-4 photo_product"%></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+            <div class="tab-pane fade" id="compras" role="tabpanel" aria-labelledby="compras-tab">
+              <div class="list-group mt-3">
+
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th class="th_product" scope="col">Nombre</th>
+                    <th class="th_product" scope="col">Cantidad</th>
+                    <th class="th_product" scope="col">Total</th>
+                    <th class="th_product" scope="col">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @compras.each do |compra|  %>
+                    <tr data-bs-toggle="modal" data-bs-target="#modal<%= compra.id %>">
+                      <td class="th_product" scope="row"><%= compra.product.title %></td>
+                      <td class="th_product" ><%= compra.quantity %></td>
+                      <td class="th_product" >$<%= compra.price %></td>
+                      <td class="th_product"><%= compra.created_at.to_date %></td>
+                    </tr>
+                    <!-- Modal -->
+                    <%= render "modal_compra", compra:compra %>
+
+                  <% end %>
+                </tbody>
+              </table>
+
+              </div>
+            </div>
+          <div class="tab-pane fade" id="ventas" role="tabpanel" aria-labelledby="ventas-tab">
+            <div class="list-group mt-3">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th class="th_product" scope="col">Nombre</th>
+                    <th class="th_product" scope="col">Cliente</th>
+                    <th class="th_product" scope="col">Cantidad</th>
+                    <th class="th_product" scope="col">Total</th>
+                    <th class="th_product" scope="col">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @ventas.each do |venta|  %>
+                    <tr data-bs-toggle="modal" data-bs-target="#modal-venta<%= venta.id %>">
+                      <td class="th_product" scope="row"><%= venta.product.title %></td>
+                      <td class="th_product" scope="row"><%= venta.user.first_name %> <%= venta.user.last_name %></td>
+                      <td class="th_product" ><%= venta.quantity %></td>
+                      <td class="th_product" >$<%= venta.price %></td>
+                      <td class="th_product"><%= venta.created_at.to_date %></td>
+                    </tr>
+                    <%= render "modal_venta", compra:venta %>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
