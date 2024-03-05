@@ -11,21 +11,6 @@
 # new_user = User.new(: "Wonder Woman 1984", overview: "Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s", poster_url: "https://image.tmdb.org/t/p/original/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", rating: 6.9)
 # new_product = Product.new()
 
-# require "open-uri"
-
-# file = URI.open("https://th.bing.com/th/id/R.39b1bc93248764ac4e1ad7b9fe106d11?rik=HW%2fcSGF4c5hM5A&pid=ImgRaw&r=0")
-# product = Product.new(title: "Comida para perros adultos", description: "Alimento para perros en edad adulta. 30kg.
-#   Sabor carne a la parrilla", price: 10, stock: 5, brand: "Dogourmet", pet: "Perros", category: "Alimentos")
-# product.photo.attach(io: file, filename: "perrarina.png", content_type: "image/png")
-# product.save
-# file = URI.open("https://www.rbdesenos.es/wp-content/uploads/2022/06/82050257.jpg")
-# product = Product.new(title: "Cesta para gatos", description: "El Gar Basket  se convertirá en el refugio favorito de
-#   tu gato. La cesta incluye un cómodo cojín para tu mascota y dos orejas de gato en la parte superior. La cesta está
-#   hecha de jacinto de agua y hierro y es una pieza muy decorativa, un verdadero punto de atracción.
-#   Sabor carne a la parrilla", price: 50, stock: 7, brand: "RB Diseños", pet: "Gatos", category: "Muebles")
-# product.photo.attach(io: file, filename: "cesta_gato.png", content_type: "image/png")
-# product.save
-
 Order.destroy_all
 Product.destroy_all
 User.destroy_all
@@ -58,10 +43,13 @@ products = [
   { title: 'Comida para gatos Max Vita', image: 'comida_gato_1.jpg', price: 7, stock: 15, pet: "Gatos", category: "Alimento", brand: "Max Vita" },
   { title: 'Comida para gatos Whiskas', image: 'comida_gato_2.jpg', price: 8, stock: 10, pet: "Gatos", category: "Alimento", brand: "Whiskas" },
   { title: 'Comida para gatos Mirringo', image: 'comida_gato_3.jpg', price: 10, stock: 11, pet: "Gatos", category: "Alimento", brand: "Mirringo" },
-  { title: 'Jaula para pájaros', image: 'balancin_pajaro.jpg', price: 2.5, stock: 6, pet: "Aves", category: "Juguetes", brand: "SPRING PARK"  },
-  { title: 'Collar de perro', image: 'collar_perro.jpg', price: 12.5, stock: 2, pet: "Perros", category: "Accesorios" , brand: "My Sweet Star Pink" },
+  { title: 'Balancin para pájaros', image: 'balancin_pajaro.jpg', price: 2.5, stock: 6, pet: "Aves", category: "Juguetes", brand: "SPRING PARK"  },
+  { title: 'Collar de perro', image: 'collar_perro.jpg', price: 12.5, stock: 2, pet: "Perros", category: "Accesorios", brand: "My Sweet Star Pink" },
   { title: 'Rueda de hamster', image: 'rueda_hamster.jpg', price: 4.7, stock: 3, pet: "Roedores", category: "Juguetes", brand: "BUCATSTATE" },
-  { title: "Juguete de perro", image: "juguete_perro.jpg", price: 8.99, stock: 7, pet: "Perros", category: "Juguetes" , brand: "Genérico" }
+  { title: "Juguete de perro", image: "juguete_perro.jpg", price: 8.99, stock: 7, pet: "Perros", category: "Juguetes", brand: "Genérico" },
+  { title: "Comida para perros", image: "comida_perro_2.jpg", price: 9.99, stock: 13, pet: "Perros", category: "Alimento", brand: "Chunky" },
+  { title: "Cama", image: "cama_perro.jpg", price: 30, stock: 1, pet: "Perros", category: "Muebles", brand: "OrthoComfort" },
+  { title: "Comida Ninfa", image: "comida_ninfa.jpg", price: 5, stock: 7, pet: "Aves", category: "Alimento", brand: "Zupreem" },
 ]
 # Descripciones detalladas para cada perfume
 descriptions = {
@@ -74,11 +62,14 @@ descriptions = {
   'Comida para gatos Max Vita' => 'Alimento Gato Max Vita Castrado Selection Pollo - 1 Kg',
   'Comida para gatos Whiskas' => 'Whiskas Adulto 7+ Senior Mackerel comida seca para gatos 1.1kg',
   'Comida para gatos Mirringo' => 'Gatarina Mirringo X 8kg Adultos 1+. Rico en vitaminas y minerales esenciales',
-  'Jaula para pájaros' => 'Soporte de percha de mesa de madera para pájaros pequeños',
+  'Balancin para pájaros' => 'Soporte de percha de mesa de madera para pájaros pequeños',
   'Collar de perro' => 'Bonito y Exclusivo collar para perros 100% handmade en España.',
   'Rueda de hamster' => 'Rueda Hamster Silenciosa 15cm. Juguete de Hámster Transparente de Ejercicio para roedores',
   "Juguete de perro" => "Nudo de juguete masticable de cuerda de algodón para tirar para perros.
-                  Juega a la limpieza interactiva de dientes"
+                        Juega a la limpieza interactiva de dientes",
+  "Comida para perros" => "Alimento para perros sabor Cordero, Arroz y Salmón. Adultos 12Kg.",
+  "Cama" => "Cama lavable suave para perros o gatos. Tipo canasta con fondo Oxford impermeable y antideslizante",
+  "Comida Ninfa" => "Alimento para Ninfa Zupreem sabor a Mezcla de frutas"
 }
 # Crear productos y adjuntar imágenes
 products.each do |product|
