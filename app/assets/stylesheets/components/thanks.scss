@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.section-thanks{
+  box-shadow: 0px 0px 33px -24px #7408AA;
+  margin: auto;
+  padding: 50px;
+  width: 50%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-thanks h1{
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 70px;
+}
+
+.section-thanks h1 > i {
+  font-size: 70px;
+  color: #7408AA;
+}
+
+.section-thanks div{
+  background: linear-gradient(to right, #f4524d 0%, #5543ca 100%);
+  width: 100%;
+  padding: 5px;
+}
+
+.section-thanks a{
+  margin: 10px;
+}
