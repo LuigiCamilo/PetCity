@@ -13,14 +13,24 @@
 
 <section>
   <div class="activites">
-    <div style="background-image: url(<%= asset_path 'pexels-photo-1404819.webp' %>)">
-    <h3><%= link_to "Gatos", controller: "products", query: "gatos"%></h3>
+    <div class="d-flex" style="background-image: url(<%= asset_path 'pexels-photo-1404819.webp' %>)">
+      <p>Todas las marcas populares para</p>
+      <h3>
+        <%= link_to "TUS MININOS", controller: "products", query: "gatos"%>
+      </h3>
     </div>
     <div style="background-image: url(<%= asset_path 'dcbab12ee6f7751d8cf1f55da4bb7978.png' %>)">
-      <h3><%= link_to "Roedores", controller: "products", query: "roedores"%></h3>
+      <p>La mejor comida para tus</p>
+      <h3>
+        <%= link_to "ROEDORES", controller: "products", query: "roedores"%>
+      </h3>
     </div>
     <div style="background-image: url(<%= asset_path '2d2c95cd9dee23a253bd833d060813ec.png' %>)">
-    <h3><%= link_to "Perros", controller: "products", query: "perros"%></h3></div>
+      <p>Haz feliz a tus</p>
+      <h3>
+        <%= link_to "PERROS", controller: "products", query: "perros"%>
+      </h3>
+    </div>
     <div style="background-image: url(<%= asset_path 'pata-removebg-preview.png' %>)">
     <h2><%= link_to "¡Compra ahora!", products_path, class:"text-white text-decoration-none" %></h2>
     </div>
