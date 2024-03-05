@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :orders
   has_one_attached :photo
-  validates :photo, :title, :description, :stock, :price, presence: true
+  validates :title, :description, :stock, :price, presence: true
 
   include PgSearch::Model
   pg_search_scope :search,
