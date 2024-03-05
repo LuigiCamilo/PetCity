@@ -75,3 +75,8 @@ body{
 .form-inputs :nth-child(1){
   margin-bottom: 0 !important;
 }
+
+.card_img{
+  height: 340px;
+  object-fit: contain;
+}
